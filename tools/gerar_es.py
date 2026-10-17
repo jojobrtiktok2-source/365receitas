@@ -8,6 +8,7 @@ h=open(src,encoding='utf-8').read()
 # o /es mantém o rodapé próprio e não tem o aviso de cookies em PT
 h=re.sub(r'<footer.*?</footer>',lambda m:'@@RODAPE_ES@@',h,count=1,flags=re.S)
 h=re.sub(r'\n?<div id="aviso-cookies".*?</script>','',h,flags=re.S)
+h=re.sub(r'<!-- Google tag \(gtag.js\) -->.*?<!-- /Google tag -->\n','',h,flags=re.S)  # tag do Google só no PT
 T=json.load(open(dic,encoding='utf-8'))
 miss=[]
 def tr(s):

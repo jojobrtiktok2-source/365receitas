@@ -16,6 +16,18 @@ EMPRESA = {
     "atualizado": "17 de outubro de 2026",
 }
 
+GTAG = """<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18517973900"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18517973900');
+</script>
+<!-- /Google tag -->"""
+
+
 PAGINAS = [
     ("politica-de-privacidade", "Política de Privacidade"),
     ("termos-de-uso", "Termos de Uso"),
@@ -197,6 +209,7 @@ def pagina(slug, titulo):
     return f"""<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+{GTAG}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{titulo} | {EMPRESA['produto']}</title>
@@ -228,6 +241,8 @@ def main():
 
     caminho = os.path.join(RAIZ, "index.html")
     h = open(caminho, encoding="utf-8").read()
+    h = re.sub(r"<!-- Google tag \(gtag.js\) -->.*?<!-- /Google tag -->\n", "", h, flags=re.S)
+    h = h.replace("<head>\n", "<head>\n" + GTAG + "\n", 1)
     h = re.sub(r"<footer.*?</footer>", lambda m: rodape(""), h, count=1, flags=re.S)
     h = re.sub(r'\n?<div id="aviso-cookies".*?</script>', "", h, flags=re.S)
     h = h.replace('<script src="assets/app.js"></script>',
