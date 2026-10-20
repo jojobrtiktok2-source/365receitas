@@ -33,7 +33,7 @@ print('faltando:',[m for m in miss if m not in('AM','JS','CF','PR','RB','LC','An
 # --- precios en dólares + precio local por IP ---
 h=open(out,encoding='utf-8').read()
 local='<p data-precio-local="%s" class="font-semibold" style="display:none;font-size:13px;line-height:1.3;color:#57534e;margin-top:4px"></p>'
-P=[('leading-none">R$ 10</p>','leading-none" style="white-space:nowrap"><span style="font-size:.5em;vertical-align:.45em;margin-right:.08em">US$</span>6</p>'+local%'6'),
+P=[('leading-none">R$ 10</p>','leading-none" style="white-space:nowrap"><span style="font-size:.5em;vertical-align:.45em;margin-right:.08em">US$</span>7,90</p>'+local%'7.90'),
    ('leading-none">R$ 18</p>','leading-none" style="white-space:nowrap"><span style="font-size:.5em;vertical-align:.45em;margin-right:.08em">US$</span>9,90</p>'+local%'9.90'),
    ('De R$ 97,00 por solo','De US$ 57,00 por solo'),
    ('De R$ 197,00 por solo','De US$ 117,00 por solo'),
@@ -42,7 +42,16 @@ for a,b in P:
     assert a in h,a; h=h.replace(a,b)
 h=h.replace('<script src="../assets/app.js"></script>','<script src="../assets/app.js"></script>\n<script src="../assets/precio-local.js"></script>')
 assert 'R$' not in h
-h=h.replace('https://pay.cakto.com.br/jat9wer_1210800','https://pay.wiapy.com/Ci6of1B5M1ll').replace('https://pay.cakto.com.br/3e626fx_1210811','https://pay.wiapy.com/3IdUSNfye7KS')
+h=h.replace('https://pay.cakto.com.br/jat9wer_1210800','https://pay.hotmart.com/D108101514V?checkoutMode=10').replace('https://pay.cakto.com.br/3e626fx_1210811','https://pay.hotmart.com/D108101514V?off=7v6o0g8z&amp;checkoutMode=10')
 open(out,'w',encoding='utf-8').write(h)
 h=open(out,encoding='utf-8').read().replace('@@RODAPE_ES@@','<footer class="bg-[var(--brand-green-deep)] text-white/80 py-10 px-4 text-center"><p class="font-bold text-white mb-2">365 Recetas Sin Azúcar, Sin Gluten y Sin Lactosa</p><p class="text-sm">© 2026 Todos los derechos reservados.</p><p class="text-xs mt-3 text-white/60">El checkout se configurará más adelante.</p></footer>')
 open(out,'w',encoding='utf-8').write(h)
+
+# Mantém imagens localizadas exclusivas do /es ao regenerar.
+from pathlib import Path
+_manifest=Path(out).parent / "assets/inventario.json"
+if _manifest.exists():
+    h=Path(out).read_text(encoding="utf-8")
+    for _item in json.loads(_manifest.read_text(encoding="utf-8")):
+        h=h.replace(_item["src"],_item["localized"])
+    Path(out).write_text(h,encoding="utf-8")
