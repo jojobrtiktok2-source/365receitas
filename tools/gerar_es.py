@@ -55,3 +55,11 @@ if _manifest.exists():
     for _item in json.loads(_manifest.read_text(encoding="utf-8")):
         h=h.replace(_item["src"],_item["localized"])
     Path(out).write_text(h,encoding="utf-8")
+
+# Meta Pixel exclusivo da versão espanhola.
+_pixel=Path(out).parent / "meta-pixel.html"
+if _pixel.exists():
+    h=Path(out).read_text(encoding="utf-8")
+    h=h.replace("</head>", _pixel.read_text(encoding="utf-8")+"</head>",1)
+    h=h.replace("<body>", '<body>\n<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1008434774897950&amp;ev=PageView&amp;noscript=1"></noscript>',1)
+    Path(out).write_text(h,encoding="utf-8")
