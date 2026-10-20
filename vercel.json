@@ -1,0 +1,116 @@
+{
+  "rewrites": [
+    {
+      "source": "/assets/01-latam.png",
+      "destination": "/es/assets/01-latam.png"
+    },
+    {
+      "source": "/assets/02-latam.png",
+      "destination": "/es/assets/02-latam.png"
+    },
+    {
+      "source": "/assets/03-latam.png",
+      "destination": "/es/assets/03-latam.png"
+    },
+    {
+      "source": "/assets/04-latam.png",
+      "destination": "/es/assets/04-latam.png"
+    },
+    {
+      "source": "/assets/05-latam.png",
+      "destination": "/es/assets/05-latam.png"
+    },
+    {
+      "source": "/assets/06-latam.png",
+      "destination": "/es/assets/06-latam.png"
+    },
+    {
+      "source": "/assets/07-latam.png",
+      "destination": "/es/assets/07-latam.png"
+    },
+    {
+      "source": "/assets/08-latam.png",
+      "destination": "/es/assets/08-latam.png"
+    },
+    {
+      "source": "/assets/09-latam.png",
+      "destination": "/es/assets/09-latam.png"
+    },
+    {
+      "source": "/assets/10-latam.png",
+      "destination": "/es/assets/10-latam.png"
+    },
+    {
+      "source": "/assets/11-latam.png",
+      "destination": "/es/assets/11-latam.png"
+    },
+    {
+      "source": "/assets/12-latam.png",
+      "destination": "/es/assets/12-latam.png"
+    },
+    {
+      "source": "/assets/13-latam.webp",
+      "destination": "/es/assets/13-latam.webp"
+    },
+    {
+      "source": "/assets/14-latam.png",
+      "destination": "/es/assets/14-latam.png"
+    },
+    {
+      "source": "/assets/15-latam.png",
+      "destination": "/es/assets/15-latam.png"
+    },
+    {
+      "source": "/assets/16-latam.webp",
+      "destination": "/es/assets/16-latam.webp"
+    },
+    {
+      "source": "/assets/17-latam.webp",
+      "destination": "/es/assets/17-latam.webp"
+    },
+    {
+      "source": "/assets/18-latam.png",
+      "destination": "/es/assets/18-latam.png"
+    },
+    {
+      "source": "/assets/19-latam.png",
+      "destination": "/es/assets/19-latam.png"
+    },
+    {
+      "source": "/assets/20-latam.png",
+      "destination": "/es/assets/20-latam.png"
+    },
+    {
+      "source": "/assets/21-latam.png",
+      "destination": "/es/assets/21-latam.png"
+    },
+    {
+      "source": "/assets/22-latam.png",
+      "destination": "/es/assets/22-latam.png"
+    },
+    {
+      "source": "/assets/23-latam.jpg",
+      "destination": "/es/assets/23-latam.jpg"
+    },
+    {
+      "source": "/assets/24-latam.png",
+      "destination": "/es/assets/24-latam.png"
+    },
+    {
+      "source": "/assets/25-latam.png",
+      "destination": "/es/assets/25-latam.png"
+    },
+    {
+      "source": "/assets/26-latam.png",
+      "destination": "/es/assets/26-latam.png"
+    },
+    {
+      "source": "/assets/27-latam.png",
+      "destination": "/es/assets/27-latam.png"
+    },
+    {
+      "source": "/assets/28-latam.png",
+      "destination": "/es/assets/28-latam.png"
+    }
+  ]
+}
